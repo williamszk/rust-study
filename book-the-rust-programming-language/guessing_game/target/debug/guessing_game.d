@@ -1,0 +1,1 @@
+C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220826_01_book_rust\guessing_game\target\debug\guessing_game.exe: C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220826_01_book_rust\guessing_game\src\main.rs
