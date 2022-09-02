@@ -15,3 +15,7 @@ cargo build
 
 cargo run
 ```
+
+Stoped at:
+Hashmaps
+https://youtu.be/ygL_xcavzQ4?t=4809
