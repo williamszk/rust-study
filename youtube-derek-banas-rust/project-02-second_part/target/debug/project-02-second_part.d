@@ -1,1 +1,0 @@
-C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-02-second_part\target\debug\project-02-second_part.exe: C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-02-second_part\src\main.rs

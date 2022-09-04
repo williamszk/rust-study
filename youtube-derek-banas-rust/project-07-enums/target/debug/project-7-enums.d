@@ -1,1 +1,0 @@
-C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-7-enums\target\debug\project-7-enums.exe: C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-7-enums\src\main.rs

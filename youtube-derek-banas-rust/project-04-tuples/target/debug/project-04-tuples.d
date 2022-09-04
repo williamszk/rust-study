@@ -1,1 +1,0 @@
-C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-04-tuples\target\debug\project-04-tuples.exe: C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-04-tuples\src\main.rs

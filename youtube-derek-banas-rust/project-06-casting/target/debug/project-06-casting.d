@@ -1,1 +1,0 @@
-C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-06-casting\target\debug\project-06-casting.exe: C:\Users\william.suzuki\Documents\statistical-learning\rust_study\220803_01_banas\project-06-casting\src\main.rs
