@@ -7,5 +7,5 @@ https://www.youtube.com/watch?v=OX9HJsJUDxA&list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H
 This is the link of the "The Book"
 https://doc.rust-lang.org/stable/book/
 
-Stoped at:
+Stopped at:
 https://www.youtube.com/watch?v=VFIOSWy93H0&list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8&index=4&ab_channel=Let%27sGetRusty
