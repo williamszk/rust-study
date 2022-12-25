@@ -62,7 +62,30 @@ fn main() {
     let vec4 : Vec<i32> = (0..5).collect();
     println!("{:?}", vec4);
 
+    // A slice is a reference to another object, in our case a vector
+    let sv: &[i32] = &vec4[2..4];
+    // this is called a "fat pointer", it points to the first element and the
+    // number of elements in the slice
+    println!("{:?}", sv);
+    // a slice is a not owning reference
+    // there a difference between an "ordinary reference" and a "fat pointer"
+    
+    // strings
+    // strings are stored on the heap
+    let name = String::from("Bob Martin");
+    let _course = "Rust".to_string();
+    let new_name = name.replace("Bob", "Rodriguez");
+    println!("{}", new_name);
+    // a String is like a vector
 
+    // we also have the string slice &str
+    // the string slice will borrow values from a String object
+    // string slice is not modifiable and it is a fat pointer
+    // containing information about the start and the length of the object in
+    // memory
+    let str1 = "hello";
+    let str2 = str1.to_string(); // turn &str into String
+    let _str3 = &str2; // turn String into a &str
     
 
 
