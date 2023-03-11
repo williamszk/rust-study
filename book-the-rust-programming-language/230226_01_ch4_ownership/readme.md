@@ -1,0 +1,1 @@
+This dir contains study notes about chapter 4 - Ownership
