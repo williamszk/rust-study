@@ -1,5 +1,6 @@
 // Solution without using Copy trait inside the generic type T
 
+
 fn largest<T: PartialOrd+Clone>(list: &[T]) -> T {
     let mut largest = list[0].clone();
     for &item in list.iter() {
