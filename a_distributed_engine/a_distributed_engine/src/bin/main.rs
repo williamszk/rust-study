@@ -1,8 +1,19 @@
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
 
-    println!("Main node server running on port 8080");
+    // Make a request to a worker
+    let body = reqwest::get("http://localhost:8081")
+    .await
+    .expect("Sorry, we couldn't connect to the server.")
+    .text()
+    .await
+    .expect("Sorry, we had a problem getting the response of the request.");
 
+    println!("{:#?}", body);
+
+
+    println!("Main node server running on port 8080");
     HttpServer::new(|| {
         App::new()
             .service(hello)

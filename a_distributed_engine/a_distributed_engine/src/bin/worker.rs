@@ -2,7 +2,7 @@
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
 
-    println!("Worker node server running on port 8080");
+    println!("Worker node server running on port 8081");
 
     HttpServer::new(|| {
         App::new()
@@ -10,7 +10,7 @@ async fn main() -> std::io::Result<()> {
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 8081))?
     .run()
     .await
 }
@@ -19,7 +19,7 @@ use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+    HttpResponse::Ok().body("Hello world! from a worker node.")
 }
 
 #[post("/echo")]
