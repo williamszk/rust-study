@@ -3,7 +3,7 @@
 async fn main() -> std::io::Result<()> {
 
     // Make a request to a worker
-    let body = reqwest::get("http://localhost:8081")
+    let body = reqwest::get("http://dustr-worker:8081")
     .await
     .expect("Sorry, we couldn't connect to the server.")
     .text()
