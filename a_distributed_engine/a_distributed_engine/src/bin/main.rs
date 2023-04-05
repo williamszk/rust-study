@@ -12,7 +12,6 @@ async fn main() -> std::io::Result<()> {
 
     println!("{:#?}", body);
 
-
     println!("Main node server running on port 8080");
     HttpServer::new(|| {
         App::new()

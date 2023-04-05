@@ -2,11 +2,12 @@
 build:
 	./scripts/build_dev.sh
 
-build-release:
+release:
 	./scripts/build_release.sh
 
-images: build
+# images
+im: build
 	./scripts/docker_images.sh
 
-images-release: build-release
+im-release: release
 	echo "Implement me!"
