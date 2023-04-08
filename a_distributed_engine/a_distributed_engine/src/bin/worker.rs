@@ -1,4 +1,3 @@
-
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
 
@@ -10,7 +9,7 @@ async fn main() -> std::io::Result<()> {
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
     })
-    .bind(("dustr-worker", 8081))? // "127.0.0.1"
+    .bind(("dustr-worker", 8081))? // The first argument here should be domain of the server like: "127.0.0.1"
     .run()
     .await
 }

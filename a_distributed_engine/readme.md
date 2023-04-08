@@ -19,7 +19,6 @@ This is a place to write some code for a distributed engine.
 - [ ] Use Kubernetes to deploy the distributed engine cluster.
 
 
-
 We'll build a cluster of containers.
 There is the main node and the worker nodes.
 In the main node we should be able to send commands.
