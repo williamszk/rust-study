@@ -1,7 +1,7 @@
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
 
-    println!("Worker node server running on port 8081");
+    println!("Worker container server running on port 8081");
 
     HttpServer::new(|| {
         App::new()
@@ -9,7 +9,7 @@ async fn main() -> std::io::Result<()> {
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
     })
-    .bind(("dustr-worker", 8081))? // The first argument here should be domain of the server like: "127.0.0.1"
+    .bind(("0.0.0.0", 8081))? // The first argument here should be domain of the server like: "127.0.0.1"
     .run()
     .await
 }
