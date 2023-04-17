@@ -40,3 +40,4 @@ taking the core logic and making it run inside the k8s cluster.
 ## Sources of instruction:
 
 - https://rust-cli.github.io/book/tutorial/cli-args.html
+- https://www.usenix.org/legacy/event/hotcloud10/tech/full_papers/Zaharia.pdf   Spark: Cluster Computing with Working Sets
