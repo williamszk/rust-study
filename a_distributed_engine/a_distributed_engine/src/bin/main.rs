@@ -1,17 +1,26 @@
-use std::env;
-use clap::Parser;
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use clap::Parser;
+use std::env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let args: Vec<String> = env::args().collect();
     dbg!(args);
 
-    let args = Cli::parse();
+    let _args = Cli::parse();
 
+    // Make a request to a worker =============================================
+    let body = reqwest::get("http://dustr-worker-01:8081")
+        .await
+        .expect("Sorry, we couldn't connect to the server.")
+        .text()
+        .await
+        .expect("Sorry, we had a problem getting the response of the request.");
 
-    // Make a request to a worker
-    let body = reqwest::get("http://dustr-worker:8081")
+    println!("{:#?}", body);
+
+    // Make a request to a worker =============================================
+    let body = reqwest::get("http://dustr-worker-02:8082")
         .await
         .expect("Sorry, we couldn't connect to the server.")
         .text()
@@ -33,9 +42,9 @@ async fn main() -> std::io::Result<()> {
 }
 
 #[derive(Parser)]
-struct Cli{
-    pattern:String,
-    path:std::path::PathBuf,
+struct Cli {
+    pattern: String,
+    path: std::path::PathBuf,
 }
 
 #[get("/")]

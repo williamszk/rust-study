@@ -4,7 +4,8 @@
 In building images we use the binaries produced by the host machine.
 
 In my case the host "machine" is itself a docker container, which I'll call 
-the host container.
+the host container. This is relevant because we can just send the executable to
+the images.
 
 Then we build the executable on the host and then just copy it to the new image.
 
