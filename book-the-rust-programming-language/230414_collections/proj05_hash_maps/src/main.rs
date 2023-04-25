@@ -81,6 +81,7 @@ fn main() {
         *count += 1;
     }
     println!("{:?}", map);
+    // now I need to find the most frequent value in the hashmap
 
     // ========================================================================
     //     Given a list of integers, use a vector and return the mean (the average
