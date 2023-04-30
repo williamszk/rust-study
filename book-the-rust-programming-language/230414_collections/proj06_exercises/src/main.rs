@@ -51,15 +51,40 @@ fn main() {
         let count = frequency.entry(num).or_insert(0);
         *count += 1;
     }
-    println!("{:?}", frequency);
-}
+    // println!("{:?}", frequency);
 
-// ========================================================================
-//     Convert strings to pig latin. The first consonant of each word is moved
-// to the end of the word and “ay” is added, so “first” becomes “irst-fay.”
-// Words that start with a vowel have “hay” added to the end instead
-// (“apple” becomes “apple-hay”). Keep in mind the details about UTF-8
-// encoding!
+    // iterate over the hashmap and keep track of the largest value and the
+    // associated key
+    let mut max_val = 0;
+    let mut max_key = 0;
+
+    for (key, val) in &frequency {
+        if *val > max_val {
+            max_key = **key;
+            max_val = *val;
+        }
+    }
+    println!("mode: {:}", max_key);
+    // is there a more high level way to calculate the mode from a hashmap?
+    // or even a vector?
+
+    // there is a more functional way to do this calculation
+    let mode = frequency
+        .iter()
+        .max_by_key(|&(_, count)| count)
+        .map(|(&num, _)| num)
+        .unwrap();
+    println!("mode: {:}", mode);
+
+    // Still is pretty hard to understand completely what is going on on this code.
+    // how those two ways of calculating the mode perform?
+    // ========================================================================
+    // Convert strings to pig latin. The first consonant of each word is moved
+    // to the end of the word and “ay” is added, so “first” becomes “first-fay.”
+    // Words that start with a vowel have “hay” added to the end instead
+    // (“apple” becomes “apple-hay”). Keep in mind the details about UTF-8
+    // encoding!
+}
 
 // ========================================================================
 // Using a hash map and vectors, create a text interface to allow a user to
