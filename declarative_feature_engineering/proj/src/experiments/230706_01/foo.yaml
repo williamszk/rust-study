@@ -1,0 +1,113 @@
+# This is a full line comment
+foo: bar # this is a comment, too
+pleh: help
+stuff:
+  foo: bar
+  bar: foo
+  foo: .inf
+  bar: -.Inf
+  plop: .NAN
+  # when we write the same key twice only the latest is used
+# use the > sign to be able to fold string
+bar1: >
+  this is not a normal string it
+  spans more than
+  one line
+  see?
+# the | will be have a similar job as > but the string is literally interpreted
+bar2: |
+  this is not a normal string it
+  spans more than
+  one line
+  see?
+
+# how do we represent nulls?
+foo_again: ~
+bar_again: null
+
+# those are all the ways in which we can represent bools
+foo-for-bool: True
+bar-for-bool: False
+foo-for-bool-2: true
+bar-for-bool-2: false
+light: On
+TV: Off
+
+# You can specify arrays or lists on a single line.
+items: [ 1, 2, 3, 4, 5 ]
+names: [ "one", "two", "three", "four" ]
+
+# we can also represent arrays as a list like this:
+items-list:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+names-list:
+  - "one"
+  - "two"
+  - "three"
+  - "four"
+
+items-as-list:
+  - things:
+      thing1: huey
+      things2: dewey
+      thing3: louie
+  - other things:
+      key: value
+# this will be translated into a list of dicts which has just one key and 
+# a dictionary inside
+# items-as-list : [
+  # {'things': {'thing1': 'huey', 'things2': 'dewey', 'thing3': 'louie'}}, 
+  # {'other things': {'key': 'value'}}
+# ]
+
+# so how do we represent a list of dictionaries?
+# this is how
+my-another-list:
+  - key1: value1
+    key2: value2
+  - key1: value3
+    key2: value4
+
+yet-another-list-of-dicts:
+  - name: John Doe
+    age: 30
+    profession: Developer
+  - name: Jane Smith
+    age: 25
+    profession: Designer
+
+# representing dictionaries inline
+foo-my-dict-inline: { thing1: huey, thing2: louie, thing3: dewey }
+
+bar-my-dict-span-lines:
+  foo: bar
+  bar: foo
+
+# we can nest dicts and lists
+my-dict-with-list:
+  bar:
+    - bar
+    - rab
+    - plop
+
+###################
+# Chomp Modifiers #
+###################
+
+# YAML has the strip chomp and preserve chomp operators.
+bar-preserve: >+
+  this is not a normal string it
+  spans more than
+  one line
+  see?
+
+bar-strip: |-
+  this is not a normal string it
+  spans more than
+  one line
+  see?
+
