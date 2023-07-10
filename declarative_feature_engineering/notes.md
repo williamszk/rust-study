@@ -10,6 +10,7 @@ https://docs.google.com/document/d/1YZwnJHrZtYg3SDLCqveh_rKjXU7FofT_DxyGPdggfxk/
 - [ ] Build a data pipeline in Pandas
 - [ ] Take a look at: https://analyticsindiamag.com/10-datasets-for-data-cleaning-practice-for-beginners/
 - [ ] https://www.google.com/search?q=where+to+find+datasets+to+practice+data+wrangling&oq=where+to+find+datasets+to+practice+data+wrangling&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCTExNTE5ajBqNKgCALACAA&sourceid=chrome&ie=UTF-8
+- [ ] One of the most important functionalities is the ability to import csv.
 - [ ] Use this pipeline as an example to build the YAML features for the declarative language
 - [ ] Study how to create a programming language.
 - [ ] Study how to create a declarative programming language.

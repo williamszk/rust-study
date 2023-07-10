@@ -1,0 +1,16 @@
+---
+table:
+  RESOURCE: int
+  MGR_ID: int
+  ROLE_ROLLUP_1: int
+  ROLE_ROLLUP_2: int
+  ROLE_DEPTNAME: int
+  ROLE_TITLE: int
+  ROLE_TITLE: int
+  ROLE_FAMILY: int
+  ROLE_FAMILY: int
+  ROLE_CODE: int
+
+
+
+
