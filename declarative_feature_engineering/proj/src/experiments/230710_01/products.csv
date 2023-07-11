@@ -1,0 +1,12 @@
+id;name;sodium;category
+1;Butter Cookies;high;cookie
+2;Butter Cookies Organic;low;cookie
+3;Chocolate Cookie;high;cookie
+4;Organic Chocolate Cookie;low;cookie
+5;Sailor's Cookie;zero;cookie
+6;Oat Cookie;zero;cookie
+7;fruit sweet;high;sweet
+8;mint sweet;high;sweet
+9;Chocolate Bar;high;Chocolate
+10;Milk Chocolate Bar;high;Chocolate
+11;White Chocolate Bar;high;Chocolate

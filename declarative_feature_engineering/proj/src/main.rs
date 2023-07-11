@@ -9,7 +9,7 @@ use std::io::Read;
 fn main() -> Result<(), Box<dyn error::Error>> {
     println!("Hello, world!");
     // ------------------------------------------------------------------------
-    // print_yaml_struct_known::<MyData>("./src/foo2.yaml");
+    print_yaml_struct_known::<MyData>("./src/foo2.yaml");
     // ------------------------------------------------------------------------
     // print_yaml_struct_unknown("./src/foo3.yaml");
     // print_yaml_struct_unknown("./src/experiments/230708_01/experiment_with_table.yaml");
