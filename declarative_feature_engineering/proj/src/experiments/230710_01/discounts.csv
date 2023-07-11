@@ -1,4 +1,4 @@
-product;quantity;discount
+product_id;quantity;discount
 1;5;7
 1;10;8
 2;5;6

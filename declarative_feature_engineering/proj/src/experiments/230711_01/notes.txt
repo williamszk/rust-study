@@ -1,0 +1,25 @@
+
+https://www.freecodecamp.org/news/the-programming-language-pipeline-91d3f449c919/
+
+variables
+functions
+user defined structures
+
+In this declarative language variables will be just values
+In this declarative language functions will be like values
+we just put the variable right next to the function than it will either
+another function or a value
+
+Lexer -> transforms source code into a Token List
+Token list
+
+
+
+
+
+
+
+
+
+
+
