@@ -5,3 +5,8 @@ read_csv:
   b: 2
 # need to define the `read_csv`
 # identify the id
+
+my_data_frame:
+  read_csv:
+    path: './src/experiments/230711_01/clients.csv'
+    sep: ';'
