@@ -6,7 +6,6 @@ use std::env;
 async fn main() -> std::io::Result<()> {
     let args: Vec<String> = env::args().collect();
     dbg!(args);
-
     let _args = Cli::parse();
 
     // Make a request to a worker =============================================

@@ -1,0 +1,46 @@
+
+This is the time that took to compile inside a container
+./scripts/build_dev.sh
+[+] Building 109.3s (9/9) FINISHED  
+
+The problem with compiling inside a container is that we'll not benefit from caching. 
+So the compilation needs to happen from zero.
+
+Sadly the developer will need to have rust installed in their machine to work in this project.
+
+What happens if we try to compile again with just a minor change?
+[+] Building 103.9s (9/9) FINISHED 
+
+It is similar.
+
+Let's experiment with compiling in the host machine.
+
+cd a_distributed_engine
+time cargo build
+cd -
+
+cargo build
+Compiling a_distributed_engine v0.1.0 (/home/ubuntu/rust-study/a_distributed_engine/a_distributed_engine)
+Finished dev [unoptimized + debuginfo] target(s) in 18.35s
+# >>>>>>>>>>>>>> 18.35s
+
+time cargo build
+cd -
+bash: cd: a_distributed_engine: No such file or directory
+    Finished dev [unoptimized + debuginfo] target(s) in 0.20s
+
+real    0m0.264s
+user    0m0.169s
+sys     0m0.047s
+/home/ubuntu/rust-study/a_distributed_engine/a_distributed_engine
+# >>>>>>>>>>>>>> 0.20s
+# this is using caching
+# what happens if we try to compile from scratch
+
+real    1m9.941s
+user    3m27.648s
+sys     0m23.732s
+/home/ubuntu/rust-study/a_distributed_engine
+
+It took 69s to compile from scratch in the host machine. This doesn't take in
+consideration the time to download the libraries.

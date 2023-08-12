@@ -1,13 +1,16 @@
+default: dev images
+	docker compose up
 
-build:
+# building docker images --------------------
+dev:
 	./scripts/build_dev.sh
 
 release:
 	./scripts/build_release.sh
 
-# images
-im: build
+#  images -----------------------------------
+images: dev
 	./scripts/docker_images.sh
 
-im-release: release
+images-release: release
 	echo "Implement me!"

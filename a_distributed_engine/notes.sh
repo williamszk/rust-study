@@ -40,3 +40,7 @@ docker kill dustr-worker-02
 docker rm dustr-worker-02
 
 docker logs dustr-worker-02 
+
+# ----------------------------------------------
+docker run --rm -it williamszk/a-distributed-engine-base-image bash
+
