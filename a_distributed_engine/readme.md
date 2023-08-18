@@ -15,6 +15,8 @@ This is a place to write some code for a distributed engine.
 - [ ] There should be a way to make the main node know the existence of the worker
       nodes. One possibility is to make the worker node know the address of the main node
       and then it can make a request to the main node so that they are listed as available for work.
+- [ ] Question: should the worker make a request to the master and ask to be part of the cluster? Or should the master
+      make a request to the worker so that it participates on the cluster?
 - .
 - [ ] The main node should have a way to do health checks on the worker nodes, before trying to send requests.
 - .
@@ -29,7 +31,6 @@ This is a place to write some code for a distributed engine.
 - [ ] I have two alternatives when creating a dustr cluster. 1) Create a standard cluster. We will directly configure the nodes on the cluster. 2) Use on top of Kubernetes, or any other container orchestrator. It could be also docker swarm.
 - [ ] I'm assuming a client-server relationship in the cluster. But we could explore other forms of relationships between the components of the cluster. For example a message-broker architecture.
       Are there any other forms of architecture that are interesting for this problem?
-- [ ] Question: should the worker make a request to the master and ask to be part of the cluster? Or should the master make a request to the worker so that it participates on the cluster?
 - [x] currently the build happens inside the host machine, ideally we should write the code in such a way that the build happens inside a container;
       we could use a base image which is responsible for building all the executables; and just copy the executables to the appropriate docker images;
       This is not a good idea, because it will make the build compile from scratch; It takes much more time, a simple test showed that with caching the
