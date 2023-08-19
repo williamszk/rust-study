@@ -1,0 +1,25 @@
+
+Measure time with volumes recompiling the project
+
+measure build time from scratch inside the container
+real    1m10.741s
+user    3m19.382s
+sys     0m25.316s
+
+measure build time with cached but destroying the container
+real    0m7.146s
+user    0m1.206s
+sys     0m0.858s
+
+
+Measure compare with build --release
+real    2m10.815s
+user    7m19.411s
+sys     0m25.293s
+
+This is compiling with --release and with cache
+real    0m2.829s
+user    0m1.119s
+sys     0m0.908s
+
+

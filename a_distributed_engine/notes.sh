@@ -44,3 +44,18 @@ docker logs dustr-worker-02
 # ----------------------------------------------
 docker run --rm -it williamszk/a-distributed-engine-base-image bash
 
+# ----------------------------------------------
+# Docker build dev container
+docker build -t test-image -f docker/main/Dockerfile.dev .
+# docker run -it --rm test-image
+docker run -it \
+    -v ./a_distributed_engine/target:/usr/a_distributed_engine/target \
+    --rm test-image
+
+# inside the container
+time cargo build 
+time cargo build --release
+
+# to delete the target dir, and remove the cache
+# in the host machine
+sudo rm -rf ./a_distributed_engine/target

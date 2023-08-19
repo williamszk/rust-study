@@ -1,0 +1,5 @@
+# This dockerfile is used to build the prod ready executable
+# This image should be used by the main and worker Dockerfiles
+
+
+

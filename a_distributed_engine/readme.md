@@ -7,6 +7,7 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
+- [ ] We can try to build and run the rust program inside a container if we use volumes for the `Cargo.lock` and `target` files.
 - [ ] Inside of the worker node, there is no problem to use por 8080. But when exposing the port the container should know to export it to another port. Maybe we don't need to have a command line argument to set the port internally. To handle the conflicting ports we can just use the `docker run` and pass the appropriate options for port `-p`.
 - [ ] Build two worker nodes and make the main node send requests to both of them.
 - .
@@ -33,8 +34,7 @@ This is a place to write some code for a distributed engine.
       Are there any other forms of architecture that are interesting for this problem?
 - [x] currently the build happens inside the host machine, ideally we should write the code in such a way that the build happens inside a container;
       we could use a base image which is responsible for building all the executables; and just copy the executables to the appropriate docker images;
-      This is not a good idea, because it will make the build compile from scratch; It takes much more time, a simple test showed that with caching the
-      compilation in the machine took 0.20s and from scratch (including download of libs) it took 103s;
+      This is not a good idea, because it will make the build compile from scratch; It takes much more time, a simple test showed that with caching the compilation in the machine took 0.20s and from scratch (including download of libs) it took 103s;
 - [x] Start by setting up a server with actix-web.
 - [x] Make master request something to a worker node.
 - [x] Build two containers running inside a same docker-compose file.
