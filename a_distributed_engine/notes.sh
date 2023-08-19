@@ -47,7 +47,6 @@ docker run --rm -it williamszk/a-distributed-engine-base-image bash
 # ----------------------------------------------
 # Docker build dev container
 docker build -t test-image -f docker/main/Dockerfile.dev .
-# docker run -it --rm test-image
 docker run -it \
     -v ./a_distributed_engine/target:/usr/a_distributed_engine/target \
     --rm test-image

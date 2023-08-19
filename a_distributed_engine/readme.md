@@ -7,12 +7,17 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
-- [ ] We can try to build and run the rust program inside a container if we use volumes for the `Cargo.lock` and `target` files.
-- [ ] Inside of the worker node, there is no problem to use por 8080. But when exposing the port the container should know to export it to another port. Maybe we don't need to have a command line argument to set the port internally. To handle the conflicting ports we can just use the `docker run` and pass the appropriate options for port `-p`.
+- [x] We can try to build and run the rust program inside a container if we 
+      use volumes for the `Cargo.lock` and `target` files.
+      This works but it needs internet. Which is a good assumption for someone
+      working on this project.
+- [ ] Inside of the worker node, there is no problem to use por 8080. But when 
+      exposing the port the container should know to export it to another port. 
+      Maybe we don't need to have a command line argument to set the port 
+      internally. To handle the conflicting ports we can just use the `docker run` 
+      and pass the appropriate options for port `-p`.
 - [ ] Build two worker nodes and make the main node send requests to both of them.
-- .
 - [ ] Build a CLI tool to communicate to the main node. It is like kubectl, so that we can send commands to the main node.
-- .
 - [ ] There should be a way to make the main node know the existence of the worker
       nodes. One possibility is to make the worker node know the address of the main node
       and then it can make a request to the main node so that they are listed as available for work.
