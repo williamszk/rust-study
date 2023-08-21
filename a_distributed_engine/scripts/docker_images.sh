@@ -1,8 +1,8 @@
 
 docker build \
-    -f docker/main/Dockerfile \
+    -f docker/manager/Dockerfile \
     . \
-    -t williamszk/a-distributed-engine-main
+    -t williamszk/a-distributed-engine-manager
 
 
 docker build \

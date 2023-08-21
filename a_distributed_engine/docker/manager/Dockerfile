@@ -2,7 +2,7 @@
 FROM fedora
 
 WORKDIR /usr/a_distributed_engine
-COPY ./a_distributed_engine/target/debug/main ./main
+COPY ./a_distributed_engine/target/debug/manager ./manager
 
-CMD ./main banana
+CMD ./manager banana
 
