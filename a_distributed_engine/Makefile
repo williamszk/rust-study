@@ -11,6 +11,3 @@ release:
 #  images -----------------------------------
 images: dev
 	./scripts/docker_images.sh
-
-images-release: release
-	echo "Implement me!"

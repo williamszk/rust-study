@@ -1,0 +1,4 @@
+version: '3'
+services:
+  dustr-worker:
+    image: dustr-worker-dev

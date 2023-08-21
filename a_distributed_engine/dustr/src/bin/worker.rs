@@ -23,6 +23,7 @@ async fn main() -> std::io::Result<()> {
         worker_port = default_port;
     }
 
+    println!("HI");
     println!("Worker container server running on port {}", worker_port);
 
     HttpServer::new(|| {

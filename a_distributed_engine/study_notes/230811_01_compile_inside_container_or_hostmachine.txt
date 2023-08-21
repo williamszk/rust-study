@@ -15,24 +15,24 @@ It is similar.
 
 Let's experiment with compiling in the host machine.
 
-cd a_distributed_engine
+cd dustr
 time cargo build
 cd -
 
 cargo build
-Compiling a_distributed_engine v0.1.0 (/home/ubuntu/rust-study/a_distributed_engine/a_distributed_engine)
+Compiling dustr v0.1.0 (/home/ubuntu/rust-study/dustr/dustr)
 Finished dev [unoptimized + debuginfo] target(s) in 18.35s
 # >>>>>>>>>>>>>> 18.35s
 
 time cargo build
 cd -
-bash: cd: a_distributed_engine: No such file or directory
+bash: cd: dustr: No such file or directory
     Finished dev [unoptimized + debuginfo] target(s) in 0.20s
 
 real    0m0.264s
 user    0m0.169s
 sys     0m0.047s
-/home/ubuntu/rust-study/a_distributed_engine/a_distributed_engine
+/home/ubuntu/rust-study/dustr/dustr
 # >>>>>>>>>>>>>> 0.20s
 # this is using caching
 # what happens if we try to compile from scratch
@@ -40,7 +40,7 @@ sys     0m0.047s
 real    1m9.941s
 user    3m27.648s
 sys     0m23.732s
-/home/ubuntu/rust-study/a_distributed_engine
+/home/ubuntu/rust-study/dustr
 
 It took 69s to compile from scratch in the host machine. This doesn't take in
 consideration the time to download the libraries.

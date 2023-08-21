@@ -1,5 +1,5 @@
 [package]
-name = "a_distributed_engine"
+name = "dustr"
 version = "0.1.0"
 edition = "2021"
 

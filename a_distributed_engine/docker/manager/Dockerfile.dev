@@ -1,6 +1,6 @@
-FROM rust
+# FROM rust
 
-WORKDIR /usr/a_distributed_engine
-COPY ./a_distributed_engine/ /usr/a_distributed_engine/
+# WORKDIR /usr/dustr
+# COPY ./dustr/ /usr/dustr/
 
-CMD ["bash"]
+# CMD ["bash"]

@@ -1,2 +1,2 @@
-cd a_distributed_engine
+cd dustr
 cargo build

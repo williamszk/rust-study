@@ -1,20 +1,20 @@
 
 
-cargo new a_distributed_engine
+cargo new dustr
 
-cargo run --bin main
+cargo run --bin manager
 cargo run --bin worker
-cargo run --bin repl
+cargo run --bin dustr
 
 
 docker run -it -d -p 8081:8081 --name dustr-worker williamszk/a-distributed-engine-worker 
-docker run -it --name dustr-main williamszk/a-distributed-engine-main 
+docker run -it --name dustr-manager williamszk/a-distributed-engine-manager 
 
 docker kill dustr-worker
 docker rm dustr-worker
 
-docker kill dustr-main
-docker rm dustr-main
+docker kill dustr-manager
+docker rm dustr-manager
 
 docker compose run
 
@@ -46,15 +46,29 @@ docker run --rm -it williamszk/a-distributed-engine-base-image bash
 
 # ----------------------------------------------
 # Docker build dev container
-docker build -t test-image -f docker/main/Dockerfile.dev .
+docker build -t dustr-worker-dev -f docker/worker/Dockerfile.dev .
+docker compose down 
+docker compose up
 docker run -it \
-    -v ./a_distributed_engine/target:/usr/a_distributed_engine/target \
-    --rm test-image
+    -v ./dustr/target:/usr/dustr/target \
+    --rm dustr-worker-dev
 
 # inside the container
+cd dustr
 time cargo build 
 time cargo build --release
 
 # to delete the target dir, and remove the cache
 # in the host machine
-sudo rm -rf ./a_distributed_engine/target
+sudo rm -rf ./dustr/target
+
+
+# I'm having problem trying to make things work with docker-compose
+# to remove all containers
+docker rm -f $(docker ps -a -q)
+docker compose down 
+docker compose up --build
+docker compose run -it  dustr-worker bash
+docker compose ls
+docker compose logs a_distributed_engine-dustr-worker-1
+docker inspect a_distributed_engine-dustr-worker-1
