@@ -22,8 +22,8 @@ extern crate test;
 /// # Examples
 ///
 /// ```rust
-/// use crate::my_add;
-/// assert_eq!(my_add(1, 1), 2);
+/// use proj03;
+/// assert_eq!(proj03::my_add(1, 1), 2);
 /// ```
 pub fn my_add(left: i32, right: i32) -> i32 {
     left + right
