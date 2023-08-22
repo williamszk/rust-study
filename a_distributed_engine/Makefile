@@ -1,18 +1,4 @@
 
-
-# default: dev images
-# 	docker compose up
-
-# # building docker images --------------------
-# dev:
-# 	./scripts/build_dev.sh
-
-# release:
-# 	./scripts/build_release.sh
-
-# #  images -----------------------------------
-# images: dev
-# 	./scripts/docker_images.sh
-
-build:
+default:
 	./scripts/build_dev.sh
+	./scripts/run_worker_dev.sh
