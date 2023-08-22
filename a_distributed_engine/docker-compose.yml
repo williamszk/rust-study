@@ -4,3 +4,4 @@ services:
     image: dustr-worker-dev
   dustr-manager:
     image: dustr-manager-dev
+    restart: unless-stopped

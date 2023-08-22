@@ -1,26 +1,15 @@
 #! /bin/bash
 
-docker build -t dustr-build-dev -f scripts/Dockerfile.build.dev .
+# compile the executables
+cd dustr
+cargo build
+cd -
 
-docker run \
-    -it \
-    -d \
-    --name dustr-builder \
-    -v ./dustr/target:/usr/dustr/target \
-    dustr-build-dev
+# create images
+cp ./dustr/target/debug/worker ./worker
+docker build -t dustr-worker-dev -f scripts/Dockerfile.worker.dev .
+rm worker
 
-# [ inside the container ]
-
-docker exec -it dustr-builder cargo build 
-
-# time cargo build
-
-# exit
-
-docker kill dustr-builder
-docker rm dustr-builder
-
-sudo chown -R $USER:$USER ./dustr/target
-
-# in case we want to do a build from scratch
-# sudo rm -rf ./dustr/target
+cp ./dustr/target/debug/manager ./manager
+docker build -t dustr-manager-dev -f scripts/Dockerfile.manager.dev .
+rm manager
