@@ -81,3 +81,5 @@ chmod +x ./scripts/run_worker_dev.sh
 
 
 cp ./dustr/target/debug/worker ./
+
+sudo chown -R $USER:$USER ./dustr/target

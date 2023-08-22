@@ -20,5 +20,7 @@ docker exec -it dustr-builder cargo build
 docker kill dustr-builder
 docker rm dustr-builder
 
+sudo chown -R $USER:$USER ./dustr/target
+
 # in case we want to do a build from scratch
 # sudo rm -rf ./dustr/target

@@ -2,3 +2,5 @@ version: '3'
 services:
   dustr-worker:
     image: dustr-worker-dev
+  dustr-manager:
+    image: dustr-manager-dev

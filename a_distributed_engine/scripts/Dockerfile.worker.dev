@@ -1,6 +1,6 @@
 FROM debian
 
 WORKDIR /app
-COPY 'worker' '/app/worker'
+COPY worker /app/worker
 
 CMD ["/app/worker"]
