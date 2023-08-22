@@ -1,47 +1,52 @@
-use std::env;
+use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use clap::Parser;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     // Get command line arguments
-    let args: Vec<String> = env::args().collect();
-    let default_port = 8081;
-    let worker_port: i32;
-    if args.len() > 1 {
-        let port: Result<i32, _> = args[1].parse();
-        match port {
-            Ok(parsed_num) => {
-                worker_port = parsed_num;
-            }
-            Err(err) => {
-                println!("{}", err);
-                panic!(
-                    "Sorry, we had a problem parsing the 'port' argument, it should be a number."
-                );
-            }
-        }
-    } else {
-        worker_port = default_port;
-    }
+    // let args: Vec<String> = env::args().collect();
+    let args = Cli::parse();
 
-    println!("HI");
-    println!("Worker container server running on port {}", worker_port);
+    let default_port = "8081";
+    let worker_name = args.worker_name;
 
-    HttpServer::new(|| {
+    println!(
+        "Worker container server running - worker name: '{}'",
+        worker_name
+    );
+
+    let addrs = format!("0.0.0.0:{}", default_port);
+    HttpServer::new(move || {
         App::new()
-            .service(hello)
+            .app_data(web::Data::new(AppState {
+                app_name: worker_name.clone(),
+            }))
+            .service(hello_from_worker)
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
     })
-    .bind(("0.0.0.0", 8081))? // The first argument here should be domain of the server like: "127.0.0.1"
+    .bind(addrs)?
     .run()
     .await
 }
 
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+#[derive(Debug, Parser)]
+struct Cli {
+    worker_name: String,
+}
+
+// This struct represents state
+struct AppState {
+    app_name: String,
+}
 
 #[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world! from a worker node.")
+async fn hello_from_worker(data: web::Data<AppState>) -> impl Responder {
+    let worker_name = &data.app_name;
+    HttpResponse::Ok().body(format!(
+        "Hello world! from a worker node. '{}'",
+        worker_name
+    ))
 }
 
 #[post("/echo")]

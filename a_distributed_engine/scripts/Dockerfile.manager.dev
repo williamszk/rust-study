@@ -1,6 +1,7 @@
 FROM debian
 
 WORKDIR /app
+RUN apt-get update && apt-get install libssl-dev -y
 COPY manager /app/manager
 
-CMD ["/app/manager"]
+CMD ["/app/manager", "banana_pattern", "apple_path"]

@@ -1,6 +1,0 @@
-FROM debian
-
-WORKDIR /app
-COPY manager /app/manager
-
-CMD ["/app/manager"]

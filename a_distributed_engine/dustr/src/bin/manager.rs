@@ -1,34 +1,20 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use clap::Parser;
-use std::env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let args: Vec<String> = env::args().collect();
-    dbg!(args);
-    let _args = Cli::parse();
+    // TODO: figure out where to use those arguments from args
+    let args = Cli::parse();
+    println!(">>>>>>>>>>>>> args: {:?}", args);
 
-    // Make a request to a worker =============================================
-    let body = reqwest::get("http://dustr-worker-01:8081")
-        .await
-        .expect("Sorry, we couldn't connect to the server.")
-        .text()
-        .await
-        .expect("Sorry, we had a problem getting the response of the request.");
+    // Make a request to a worker - worker 1 =============================================
+    send_request_to_worker("http://dustr-worker-01:8081").await;
 
-    println!("{:#?}", body);
+    // Make a request to a worker - worker 2 =============================================
+    send_request_to_worker("http://dustr-worker-02:8081").await;
 
-    // Make a request to a worker =============================================
-    let body = reqwest::get("http://dustr-worker-02:8082")
-        .await
-        .expect("Sorry, we couldn't connect to the server.")
-        .text()
-        .await
-        .expect("Sorry, we had a problem getting the response of the request.");
-
-    println!("{:#?}", body);
-
-    println!("Main node server running on port 8080");
+    // Running manager node API server =============================================
+    println!("Manager node server running on port 8080");
     HttpServer::new(|| {
         App::new()
             .service(hello)
@@ -40,7 +26,19 @@ async fn main() -> std::io::Result<()> {
     .await
 }
 
-#[derive(Parser)]
+/// worker_url = "http://dustr-worker-02:8081"
+async fn send_request_to_worker(worker_url: &str) {
+    let body = reqwest::get(worker_url)
+        .await
+        .expect("Sorry, we couldn't connect to the server.")
+        .text()
+        .await
+        .expect("Sorry, we had a problem getting the response of the request.");
+
+    println!(">>> Received response from worker: {:#?}", body);
+}
+
+#[derive(Debug, Parser)]
 struct Cli {
     pattern: String,
     path: std::path::PathBuf,

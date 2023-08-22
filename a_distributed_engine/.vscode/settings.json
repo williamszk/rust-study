@@ -1,4 +1,4 @@
 {
-	"cSpell.words": ["actix", "dustr", "reqwest"],
+	"cSpell.words": ["actix", "addrs", "dustr", "reqwest"],
 	"rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"]
 }

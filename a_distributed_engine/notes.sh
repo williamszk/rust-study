@@ -83,3 +83,6 @@ chmod +x ./scripts/run_worker_dev.sh
 cp ./dustr/target/debug/worker ./
 
 sudo chown -R $USER:$USER ./dustr/target
+
+# ----------------------------------------------
+docker compose run --rm -it  dustr-manager bash

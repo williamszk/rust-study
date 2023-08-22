@@ -1,8 +1,0 @@
-# This dockerfile exists for building rust executables
-FROM rust
-
-WORKDIR /usr/dustr
-COPY ./dustr /usr/dustr
-
-CMD ["bash"]
-
