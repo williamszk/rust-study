@@ -1,8 +1,9 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use clap::Parser;
+use std::io;
 
 #[actix_web::main]
-async fn main() -> std::io::Result<()> {
+async fn main() -> io::Result<()> {
     // Get command line arguments
     // let args: Vec<String> = env::args().collect();
     let args = Cli::parse();
@@ -23,6 +24,7 @@ async fn main() -> std::io::Result<()> {
             }))
             .service(hello_from_worker)
             .service(echo)
+            .service(double_map)
             .route("/hey", web::get().to(manual_hello))
     })
     .bind(addrs)?
@@ -47,6 +49,11 @@ async fn hello_from_worker(data: web::Data<AppState>) -> impl Responder {
         "Hello world! from a worker node. '{}'",
         worker_name
     ))
+}
+
+#[post("/double_map")]
+async fn double_map(req_body: String) -> impl Responder {
+    HttpResponse::Ok().body(req_body)
 }
 
 #[post("/echo")]

@@ -7,6 +7,11 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
+- [x] Let's try to do a map operation of double in an array.
+- [ ] Then try to distribute this operation between the workers.
+- [ ] In larger data sets we could try to make the workers read directly from the source.
+      This would require us to read predefined chunks of the data.
+      We could try to read apache arrow files.
 - [ ] Inside of the worker node, there is no problem to use por 8080. But when
       exposing the port the container should know to export it to another port.
       Maybe we don't need to have a command line argument to set the port
@@ -16,10 +21,12 @@ This is a place to write some code for a distributed engine.
       like pandas and polars and make the transition to a distributed engine
       be seem less.
 - [ ] Build two worker nodes and make the manager node send requests to both of them.
-- [ ] Build a CLI tool to communicate to the manager node. It is like kubectl, so that we can send commands to the manager node.
+- [ ] Build a CLI tool to communicate to the manager node. It is like kubectl, so
+      that we can send commands to the manager node.
 - [ ] There should be a way to make the manager node know the existence of the worker
       nodes. One possibility is to make the worker node know the address of the manager node
-      and then it can make a request to the manager node so that they are listed as available for work.
+      and then it can make a request to the manager node so that they are listed
+      as available for work.
 - [ ] Question: should the worker make a request to the master and ask to be part of the cluster? Or should the master
       make a request to the worker so that it participates on the cluster?
 - .
