@@ -66,9 +66,14 @@ sudo rm -rf ./dustr/target
 # I'm having problem trying to make things work with docker-compose
 # to remove all containers
 docker rm -f $(docker ps -a -q)
+
 docker compose down 
 docker compose up --build
 docker compose run -it  dustr-worker bash
 docker compose ls
 docker compose logs a_distributed_engine-dustr-worker-1
 docker inspect a_distributed_engine-dustr-worker-1
+
+# ----------------------------------------------
+
+
