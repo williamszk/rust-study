@@ -86,3 +86,7 @@ sudo chown -R $USER:$USER ./dustr/target
 
 # ----------------------------------------------
 docker compose run --rm -it  dustr-manager bash
+
+openssl s_client -connect dummyjson.com:443
+
+apt-get update && apt-get install openssl

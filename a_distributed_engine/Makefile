@@ -1,6 +1,6 @@
 
-up: build
-	docker compose up
+up: 
+	./scripts/build_dev.sh && docker compose up
 
 build:
 	./scripts/build_dev.sh

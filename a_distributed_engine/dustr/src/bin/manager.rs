@@ -1,6 +1,6 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use clap::Parser;
-use std::{io, result};
+use std::{error, io, result};
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
@@ -36,8 +36,11 @@ async fn main() -> io::Result<()> {
     }
 
     // a test with csv read ===================================================
-    _test_read_csv();
-    // end of a test with csv read ============================================
+    // _test_read_csv();
+    // a test with requesting json and printing it ============================
+    // let res = _test_request_for_json().await;
+    // println!("{:#?}", res);
+    // ========================================================================
 
     // Running manager node API server ========================================
     println!("Manager node server running on port 8080");
@@ -83,7 +86,24 @@ fn _test_read_csv() {
     };
 }
 
-fn map_double_values() -> Vec<i32> {
+async fn _test_request_for_json() -> Result<(), Box<dyn error::Error>> {
+    let resp = reqwest::get("http://dummyjson.com/comments")
+        .await?
+        .json::<serde_json::Value>()
+        .await?;
+    // for entry in resp.get("comments") {
+    //     println!("{:#?}", entry);
+    // }
+    println!("{:#?}", resp);
+
+    // while let Some(entry) = resp.get("comments") {
+    //     println!("{:#?}", entry);
+    // }
+
+    Ok(())
+}
+
+fn _map_double_values() -> Vec<i32> {
     let my_arr = vec![1, 2, 3, 4];
     let squared: Vec<i32> = my_arr.iter().map(|x| x * x).collect();
     squared
