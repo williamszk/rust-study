@@ -1,11 +1,12 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use clap::Parser;
-use std::{error, io, result};
+use dustr;
+use std::io;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
     // TODO: figure out where to use those arguments from args
-    let args = Cli::parse();
+    let _args = Cli::parse();
     // println!(">>>>>>>>>>>>> args: {:?}", args);
 
     // Make a request to a worker - worker 1 =============================================
@@ -13,10 +14,6 @@ async fn main() -> io::Result<()> {
 
     // Make a request to a worker - worker 2 =============================================
     send_request_to_worker("http://dustr-worker-02:8081").await;
-
-    // Another test
-    // let squared = map_double_values();
-    // println!(">>>>>>>> squared: {:?}", squared);
 
     // let's try to make the workers do the processing
     let res_result =
@@ -35,11 +32,8 @@ async fn main() -> io::Result<()> {
         }
     }
 
-    // a test with csv read ===================================================
-    // _test_read_csv();
-    // a test with requesting json and printing it ============================
-    // let res = _test_request_for_json().await;
-    // println!("{:#?}", res);
+    // experiments ===================================================
+    // _experiment().await;
     // ========================================================================
 
     // Running manager node API server ========================================
@@ -55,52 +49,15 @@ async fn main() -> io::Result<()> {
     .await
 }
 
-fn _test_read_csv() {
-    use serde::Deserialize;
-    use std::error::Error;
-
-    #[derive(Debug, Deserialize)]
-    struct CsvRecord {
-        name: String,
-        department: String,
-        birthday_month: String,
-    }
-
-    fn read_csv() -> Result<String, Box<dyn Error>> {
-        // fn read_csv() {
-        let reader = csv::Reader::from_path("data/sample.csv");
-        for result in reader?.deserialize() {
-            // Automatic deserialization
-            let record: CsvRecord = result?;
-            println!(
-                "Name: {} | Department: {} | Birth Month: {}",
-                record.name, record.department, record.birthday_month,
-            );
-        }
-        Ok(String::from("csv read successfully!"))
-    }
-    let result_read = read_csv();
-    match result_read {
-        Ok(message) => println!("{}", message),
-        Err(error) => println!("{}", error),
+async fn _experiment() {
+    use dustr::experiments::project;
+    let _a_struct = project::ExperimentStruct {
+        name: String::from("Bob"),
     };
-}
 
-async fn _test_request_for_json() -> Result<(), Box<dyn error::Error>> {
-    let resp = reqwest::get("http://dummyjson.com/comments")
-        .await?
-        .json::<serde_json::Value>()
-        .await?;
-    // for entry in resp.get("comments") {
-    //     println!("{:#?}", entry);
-    // }
-    println!("{:#?}", resp);
-
-    // while let Some(entry) = resp.get("comments") {
-    //     println!("{:#?}", entry);
-    // }
-
-    Ok(())
+    project::_test_read_csv();
+    let res = project::_test_request_for_json().await;
+    println!("{:#?}", res);
 }
 
 fn _map_double_values() -> Vec<i32> {
