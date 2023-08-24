@@ -1,12 +1,12 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use clap::Parser;
-use std::io;
+use std::{io, result};
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
     // TODO: figure out where to use those arguments from args
     let args = Cli::parse();
-    println!(">>>>>>>>>>>>> args: {:?}", args);
+    // println!(">>>>>>>>>>>>> args: {:?}", args);
 
     // Make a request to a worker - worker 1 =============================================
     send_request_to_worker("http://dustr-worker-01:8081").await;
@@ -35,7 +35,11 @@ async fn main() -> io::Result<()> {
         }
     }
 
-    // Running manager node API server =============================================
+    // a test with csv read ===================================================
+    _test_read_csv();
+    // end of a test with csv read ============================================
+
+    // Running manager node API server ========================================
     println!("Manager node server running on port 8080");
     HttpServer::new(|| {
         App::new()
@@ -46,6 +50,37 @@ async fn main() -> io::Result<()> {
     .bind(("127.0.0.1", 8080))?
     .run()
     .await
+}
+
+fn _test_read_csv() {
+    use serde::Deserialize;
+    use std::error::Error;
+
+    #[derive(Debug, Deserialize)]
+    struct CsvRecord {
+        name: String,
+        department: String,
+        birthday_month: String,
+    }
+
+    fn read_csv() -> Result<String, Box<dyn Error>> {
+        // fn read_csv() {
+        let reader = csv::Reader::from_path("data/sample.csv");
+        for result in reader?.deserialize() {
+            // Automatic deserialization
+            let record: CsvRecord = result?;
+            println!(
+                "Name: {} | Department: {} | Birth Month: {}",
+                record.name, record.department, record.birthday_month,
+            );
+        }
+        Ok(String::from("csv read successfully!"))
+    }
+    let result_read = read_csv();
+    match result_read {
+        Ok(message) => println!("{}", message),
+        Err(error) => println!("{}", error),
+    };
 }
 
 fn map_double_values() -> Vec<i32> {

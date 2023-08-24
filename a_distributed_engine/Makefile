@@ -1,9 +1,9 @@
 
-build:
-	./scripts/build_dev.sh
-
 up: build
 	docker compose up
+
+build:
+	./scripts/build_dev.sh
 
 # default:
 # 	./scripts/build_dev.sh
