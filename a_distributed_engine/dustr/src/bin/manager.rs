@@ -33,7 +33,7 @@ async fn main() -> io::Result<()> {
     }
 
     // experiments ===================================================
-    // _experiment().await;
+    _experiment().await;
     // ========================================================================
 
     // Running manager node API server ========================================
@@ -51,13 +51,16 @@ async fn main() -> io::Result<()> {
 
 async fn _experiment() {
     use dustr::experiments::project;
+    let res = project::_experiment_with_sqlite();
+    println!("{:?}", res);
+
     let _a_struct = project::ExperimentStruct {
         name: String::from("Bob"),
     };
 
-    project::_test_read_csv();
-    let res = project::_test_request_for_json().await;
-    println!("{:#?}", res);
+    // project::_test_read_csv();
+    // let res = project::_test_request_for_json().await;
+    // println!("{:#?}", res);
 }
 
 fn _map_double_values() -> Vec<i32> {

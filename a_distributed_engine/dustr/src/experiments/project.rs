@@ -67,7 +67,38 @@ async fn _calling_foo() {
     res.await;
 }
 
-fn _experiment_with_sqlite() {
+pub fn _experiment_with_sqlite() -> rusqlite::Result<()> {
     // https://karimjedda.com/carefully-exploring-rust
-    // use rusqlite::{}
+
+    struct Person {
+        id: i32,
+        name: String,
+        data: Option<Vec<u8>>,
+    }
+
+    let conn = rusqlite::Connection::open("people.db")?;
+
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS person(
+            id      INTEGER PRIMARY KEY,
+            name    TEXT NOT NULL,
+            data    BLOB
+        )",
+        (), // Empty list of parameters
+    )?;
+
+    let p1 = Person {
+        id: 0,
+        name: String::from("Bob"),
+        data: None,
+    };
+
+    conn.execute(
+        "INSERT INTO person (name, data) VALUES (?1, ?2)",
+        (&p1.name, &p1.data),
+    )?;
+
+    println!("Successfully insert into sqlite database.");
+
+    Ok(())
 }
