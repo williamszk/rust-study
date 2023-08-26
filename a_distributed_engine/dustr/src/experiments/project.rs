@@ -71,7 +71,7 @@ pub fn _experiment_with_sqlite() -> rusqlite::Result<()> {
     // https://karimjedda.com/carefully-exploring-rust
 
     struct Person {
-        id: i32,
+        _id: i32,
         name: String,
         data: Option<Vec<u8>>,
     }
@@ -88,7 +88,7 @@ pub fn _experiment_with_sqlite() -> rusqlite::Result<()> {
     )?;
 
     let p1 = Person {
-        id: 0,
+        _id: 0,
         name: String::from("Bob"),
         data: None,
     };

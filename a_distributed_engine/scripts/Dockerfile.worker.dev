@@ -1,7 +1,7 @@
 FROM debian
 
 WORKDIR /app
-COPY ./dustr/target/debug/worker /app/worker
+COPY ./target/debug/worker /app/worker
 COPY data /app/data
 
 CMD ["/app/worker"]
