@@ -1,4 +1,4 @@
-use rand;
+// use rand;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right

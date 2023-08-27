@@ -1,0 +1,14 @@
+# https://rust-lang-nursery.github.io/rust-cookbook/development_tools/build_tools.html#compile-and-link-statically-to-a-bundled-c-library[package]
+[package]
+name = "c_integration"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[build-dependencies]
+cc = "1"
+
+
+[dependencies]
+error-chain = "0.12.4"

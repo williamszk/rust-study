@@ -90,3 +90,16 @@ docker compose run --rm -it  dustr-manager bash
 openssl s_client -connect dummyjson.com:443
 
 apt-get update && apt-get install openssl
+
+# ----------------------------------------------
+
+cargo run --bin c_integration -p c_integration 
+
+# problem with cc and integration between rust and C
+sudo apt install gcc-multilib
+# didn't work...
+
+# it doesn't work when the package has lib crates... I'm not sure why
+cargo build
+cargo run -p c_integration
+
