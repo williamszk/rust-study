@@ -1,4 +1,3 @@
-
 use error_chain::error_chain;
 use std::ffi::CString;
 use std::os::raw::c_char;

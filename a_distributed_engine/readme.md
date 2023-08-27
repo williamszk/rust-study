@@ -7,8 +7,15 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
-- [ ] Try to read a csv locally and do something and write it back. Try to do it with the manager first.
-      Then we can try to make the worker do it. We use the manager to ask the worker to do it. 
+- [ ] An experiment: create a Rust-Go integration. We can call go code through Rust.
+      Try using json string for passing information around.
+      We could try to do the same with C and C++, use json string and parse internally.
+      Instead of trying to use the native interfaces for communication and recreating
+      the signature of functions all the time. This takes lots of time.
+- [ ] Try to read a csv locally and do something and write it back. Try to do it
+      with the manager first.
+      Then we can try to make the worker do it. We use the manager to ask the
+      worker to do it.
       Use one worker first. Then we can ask two workers to do it.
 - [x] Let's try to do a map operation of double in an array.
 - [ ] Then try to distribute this operation between the workers.
