@@ -1,0 +1,9 @@
+pandas
+matplotlib
+black
+mypy
+altair
+ipykernel
+vega_datasets 
+notebook 
+vega

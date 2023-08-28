@@ -4,11 +4,16 @@
 		"addrs",
 		"dataframe",
 		"dustr",
+		"ndarray",
+		"ndim",
+		"Quantile",
 		"reqwest",
 		"rusqlite",
 		"scikit",
 		"sklearn",
-		"sqlite"
+		"sqlite",
+		"unicode",
+		"usize"
 	],
 	"rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
 	"rust-analyzer.showUnlinkedFileNotification": false

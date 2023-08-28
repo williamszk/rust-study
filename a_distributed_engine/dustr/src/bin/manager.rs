@@ -57,10 +57,6 @@ async fn _experiment() {
     let _a_struct = project::ExperimentStruct {
         name: String::from("Bob"),
     };
-
-    // project::_test_read_csv();
-    // let res = project::_test_request_for_json().await;
-    // println!("{:#?}", res);
 }
 
 fn _map_double_values() -> Vec<i32> {
@@ -112,4 +108,18 @@ async fn echo(req_body: String) -> impl Responder {
 
 async fn manual_hello() -> impl Responder {
     HttpResponse::Ok().body("Hey there!")
+}
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test_01() {
+        assert!(true);
+    }
+
+    #[test]
+    fn test_02() {
+        let is_this_test_02 = true;
+        assert!(is_this_test_02);
+    }
 }

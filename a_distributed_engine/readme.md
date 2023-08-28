@@ -7,6 +7,10 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
+- [ ] Experiment with those notes: https://github.com/LukeMathWalker/ndarray-koans
+- [ ] With more time take a look at this package: https://docs.rs/ndarray/latest/ndarray/
+- [ ] These also seems to be a good material to explore:
+      https://www.lpalmieri.com/posts/2019-02-23-scientific-computing-a-rust-adventure-part-0-vectors/
 - [ ] There is this package called linfa: https://github.com/rust-ml/linfa;
       This is a scikit-learn like project.
 - [ ] We can try to run a simple linear model with linfa and then run it with
