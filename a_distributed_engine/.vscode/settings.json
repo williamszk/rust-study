@@ -1,5 +1,15 @@
 {
-	"cSpell.words": ["actix", "addrs", "dustr", "reqwest", "rusqlite", "sqlite"],
+	"cSpell.words": [
+		"actix",
+		"addrs",
+		"dataframe",
+		"dustr",
+		"reqwest",
+		"rusqlite",
+		"scikit",
+		"sklearn",
+		"sqlite"
+	],
 	"rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
 	"rust-analyzer.showUnlinkedFileNotification": false
 }

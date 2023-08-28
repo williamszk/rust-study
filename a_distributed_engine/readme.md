@@ -7,6 +7,23 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
+- [ ] There is this package called linfa: https://github.com/rust-ml/linfa;
+      This is a scikit-learn like project.
+- [ ] We can try to run a simple linear model with linfa and then run it with
+      scikit-learn and then compare their performances. We can try to do a a
+      performance comparison like in:
+      https://www.lpalmieri.com/posts/2019-12-01-taking-ml-to-production-with-rust-a-25x-speedup/
+      We can try to use this package inside our project.
+- [ ] Try to import a python trained model into rust and then create a rust package
+      with bin crate that can use it in its functionality.
+      https://docs.rs/serde-pickle/latest/serde_pickle/
+      `ml_models/python`.
+- [ ] It's being hard to find a way to import a pickle object with a trained model
+      into Rust. But a good alternative is to train and serve the mode inside Rust
+      itself. For a data scientist the only difference (check that) would be training.
+      But with the training dataframe (the dataframe used for training the mode)
+      we can train a model inside Rust and serve it. Also the training in Rust could
+      be considerably faster. Also the serving could be much faster.
 - [ ] An experiment: create a Rust-Go integration. We can call go code through Rust.
       Try using json string for passing information around.
       We could try to do the same with C and C++, use json string and parse internally.
@@ -37,12 +54,15 @@ This is a place to write some code for a distributed engine.
       nodes. One possibility is to make the worker node know the address of the manager node
       and then it can make a request to the manager node so that they are listed
       as available for work.
-- [ ] Question: should the worker make a request to the master and ask to be part of the cluster? Or should the master
+- [ ] Question: should the worker make a request to the master and ask to be
+      part of the cluster? Or should the master
       make a request to the worker so that it participates on the cluster?
 - .
-- [ ] The manager node should have a way to do health checks on the worker nodes, before trying to send requests.
+- [ ] The manager node should have a way to do health checks on the worker
+      nodes, before trying to send requests.
 - .
-- [ ] Build a vector and sum a value in all elements of the vector and send the computation to two worker nodes.
+- [ ] Build a vector and sum a value in all elements of the vector and send the
+      computation to two worker nodes.
 - .
 - [ ] Use grpc for communicating between nodes not http.
 - [ ] Spin up ec2 instances with as the nodes.
@@ -69,7 +89,8 @@ This is a place to write some code for a distributed engine.
       executables; and just copy the executables to the appropriate docker images;
       This is not a good idea, because it will make the build compile from scratch;
       It takes much more time, a simple test showed that with caching the
-      compilation in the machine took 0.20s and from scratch (including download of libs) it took 103s;
+      compilation in the machine took 0.20s and from scratch
+      (including download of libs) it took 103s;
 - [x] Start by setting up a server with actix-web.
 - [x] Make master request something to a worker node.
 - [x] Build two containers running inside a same docker-compose file.

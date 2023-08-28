@@ -1,3 +1,10 @@
 [workspace]
-members = ["dustr", "adder", "add_one", "c_integration", "cpp_integration"]
+members = [
+    "dustr",
+    "adder",
+    "add_one",
+    "c_integration",
+    "cpp_integration",
+    "ml_models",
+]
 resolver = "2"
