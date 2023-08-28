@@ -53,6 +53,7 @@ async fn hello_from_worker(data: web::Data<AppState>) -> impl Responder {
 
 #[post("/double_map")]
 async fn double_map(req_body: String) -> impl Responder {
+    println!("The worker received the request from manager on the endpoint '/double_map'");
     HttpResponse::Ok().body(req_body)
 }
 

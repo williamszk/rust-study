@@ -38,9 +38,11 @@ This is a place to write some code for a distributed engine.
       Then we can try to make the worker do it. We use the manager to ask the
       worker to do it.
       Use one worker first. Then we can ask two workers to do it.
-- [x] Let's try to do a map operation of double in an array.
-- [ ] Then try to distribute this operation between the workers.
-- [ ] In larger data sets we could try to make the workers read directly from the source.
+- [ ] Let's try to do a map operation of double in an array inside the manager.
+      Try to distribute this operation between the workers.
+      First, we can try to make the manager send the data from the manager to
+      the workers.
+      In larger data sets we could try to make the workers read directly from the source.
       This would require us to read predefined chunks of the data.
       We could try to read apache arrow files.
 - [ ] Inside of the worker node, there is no problem to use por 8080. But when
