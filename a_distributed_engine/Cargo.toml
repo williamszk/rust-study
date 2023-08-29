@@ -6,5 +6,6 @@ members = [
     "c_integration",
     "cpp_integration",
     "ml_models",
+    "experiments",
 ]
 resolver = "2"
