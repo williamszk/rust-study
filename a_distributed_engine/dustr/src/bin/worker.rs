@@ -4,6 +4,8 @@ use std::io;
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
+    dustr::components::worker::app::entry::_entry();
+
     // Get command line arguments
     // let args: Vec<String> = env::args().collect();
     let args = Cli::parse();
