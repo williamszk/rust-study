@@ -7,8 +7,11 @@ This is a place to write some code for a distributed engine.
 
 ## To-do:
 
+- [ ] Try making the manager send an array to one worker asking the worker to
+      double the values inside. This is one little step.
 - [ ] Experiment with those notes: https://github.com/LukeMathWalker/ndarray-koans
 - [ ] With more time take a look at this package: https://docs.rs/ndarray/latest/ndarray/
+- [ ] Study the book and see if anything will help build the project.
 - [ ] These also seems to be a good material to explore:
       https://www.lpalmieri.com/posts/2019-02-23-scientific-computing-a-rust-adventure-part-0-vectors/
 - [ ] There is this package called linfa: https://github.com/rust-ml/linfa;
@@ -53,16 +56,19 @@ This is a place to write some code for a distributed engine.
 - [ ] Polars is made with rust I can try to build something that works with Python
       like pandas and polars and make the transition to a distributed engine
       be seem less.
-- [ ] Build two worker nodes and make the manager node send requests to both of them.
+- [x] Build two worker nodes and make the manager node send requests to both of them.
 - [ ] Build a CLI tool to communicate to the manager node. It is like kubectl, so
       that we can send commands to the manager node.
-- [ ] There should be a way to make the manager node know the existence of the worker
+- [ ] There should be a way to make the manager node know about the existence of the worker
       nodes. One possibility is to make the worker node know the address of the manager node
       and then it can make a request to the manager node so that they are listed
       as available for work.
-- [ ] Question: should the worker make a request to the master and ask to be
+      Question: should the worker make a request to the master and ask to be
       part of the cluster? Or should the master
       make a request to the worker so that it participates on the cluster?
+- [ ] HTTP and REST is just one way to make the communication between worker and
+      manager nodes. Another way would be to do web-sockets or using gRPC.
+- [ ] Use gRPC for communicating between nodes instead of HTTP.
 - .
 - [ ] The manager node should have a way to do health checks on the worker
       nodes, before trying to send requests.
@@ -70,17 +76,19 @@ This is a place to write some code for a distributed engine.
 - [ ] Build a vector and sum a value in all elements of the vector and send the
       computation to two worker nodes.
 - .
-- [ ] Use grpc for communicating between nodes not http.
-- [ ] Spin up ec2 instances with as the nodes.
-- [ ] Use Terraform to manage the cluster.
-- [ ] Use Kubernetes to deploy the distributed engine cluster.
+- [ ] Try using Terraform to manage the cluster.
+- [ ] Try using Kubernetes to deploy the distributed engine cluster.
 - .
 - [ ] We'll build a cluster of containers. There is the manager node and the worker
       nodes. In the manager node we should be able to send commands. The manager node
       will not execute those commands, it will pass them to the worker nodes.
-- [ ] I have two alternatives when creating a dustr cluster. 1) Create a standard
-      cluster. We will directly configure the nodes on the cluster. 2) Use on top
-      of Kubernetes, or any other container orchestrator. It could be also docker swarm.
+      One of the jobs of the manager is to plan the processing. By planing we mean
+      first divide the dataset into the appropriate sizes.
+- [ ] I have two alternatives when creating a dustr cluster.
+      Create a standard cluster. We will directly configure the nodes on the
+      cluster.
+      Use on top of Kubernetes, or any other container orchestrator.
+      It could be also Docker Swarm.
 - [ ] I'm assuming a client-server relationship in the cluster. But we could
       explore other forms of relationships between the components of the cluster.
       For example a message-broker architecture.
@@ -102,11 +110,10 @@ This is a place to write some code for a distributed engine.
 - [x] Build two containers running inside a same docker-compose file.
 - [x] Make worker executable receive command line argument for port.
 - [x] Make default port be 8081 for the worker and 8080 for the master node.
-
-For this we'll need to make the core logic agnostic to the way in which the workload
-is distributed to the nodes.
-In Spark-k8s there is the "Kubernetes Scheduler Backend" which is responsible for
-taking the core logic and making it run inside the k8s cluster.
+- [ ] We'll need to make the core logic agnostic to the way in which the workload
+      is distributed to the nodes.
+      In Spark-k8s there is the "Kubernetes Scheduler Backend" which is responsible for
+      taking the core logic and making it run inside the k8s cluster.
 
 ## Sources of instruction:
 

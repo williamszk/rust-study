@@ -59,6 +59,8 @@ async fn double_map(req_body: String) -> impl Responder {
 
 #[post("/echo")]
 async fn echo(req_body: String) -> impl Responder {
+    println!("Someone request the echo!");
+    println!(">>> req_body: '{}'", req_body);
     HttpResponse::Ok().body(req_body)
 }
 

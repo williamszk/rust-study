@@ -1,6 +1,6 @@
 use crate as dustr;
 
-pub async fn main_01() {
+pub async fn _main_01() {
     // Make a request to a worker - worker 1 ===================================
     _send_request_to_worker("http://dustr-worker-01:8081").await;
 
