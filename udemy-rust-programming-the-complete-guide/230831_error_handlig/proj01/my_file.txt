@@ -1,0 +1,1 @@
+Hi from inside the my_file.txt
