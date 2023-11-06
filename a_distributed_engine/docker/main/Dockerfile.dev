@@ -1,6 +1,0 @@
-FROM rust
-
-WORKDIR /usr/a_distributed_engine
-COPY ./a_distributed_engine/ /usr/a_distributed_engine/
-
-CMD ["bash"]

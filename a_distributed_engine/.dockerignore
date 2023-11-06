@@ -1,4 +1,2 @@
 .vscode
 .git
-a_distributed_engine/Cargo.lock
-a_distributed_engine/target

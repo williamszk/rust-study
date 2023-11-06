@@ -1,0 +1,33 @@
+
+Sh: ShapeBuilder<Dim = D>
+
+pub trait ShapeBuilder {
+    type Dim: Dimension;
+    type Strides;
+
+    fn into_shape(self) -> Shape<Self::Dim>;
+    fn f(self) -> Shape<Self::Dim>;
+    fn set_f(self, is_f: bool) -> Shape<Self::Dim>;
+    fn strides(self, strides: Self::Strides) -> StrideShape<Self::Dim>;
+}
+
+ShapeBuilder is a trait which has 4 methods and 2 types.
+
+
+let shape: (usize, usize, usize)
+
+Why shape implements ShapeBuilder?
+
+`shape` is a tuple.
+
+Why a tuple implements the ShapeBuilder?
+
+let shape: (usize, usize, usize) = (10, 10, 10);
+shape.into_shape();
+
+I'm not sure about the answer yet...
+
+
+
+
+

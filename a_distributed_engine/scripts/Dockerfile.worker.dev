@@ -1,0 +1,8 @@
+FROM debian
+
+WORKDIR /app
+RUN apt-get update && apt-get install libssl-dev -y
+COPY ./target/debug/worker /app/worker
+COPY data /app/data
+
+CMD ["/app/worker"]

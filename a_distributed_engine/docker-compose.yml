@@ -1,0 +1,11 @@
+version: '3'
+services:
+  dustr-worker-01:
+    image: dustr-worker-dev
+    command: ['/app/worker', 'worker-01']
+  dustr-worker-02:
+    image: dustr-worker-dev
+    command: ['/app/worker', 'worker-02']
+  dustr-manager:
+    image: dustr-manager-dev
+    restart: unless-stopped

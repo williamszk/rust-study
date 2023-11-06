@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "dustr",
+    "adder",
+    "add_one",
+    "c_integration",
+    "cpp_integration",
+    "ml_models",
+    "experiments",
+]
+resolver = "2"

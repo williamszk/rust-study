@@ -1,0 +1,6 @@
+# FROM rust
+
+# WORKDIR /usr/dustr
+# COPY ./dustr/ /usr/dustr/
+
+# CMD ["bash"]

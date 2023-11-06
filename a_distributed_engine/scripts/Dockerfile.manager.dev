@@ -1,0 +1,10 @@
+FROM debian
+
+WORKDIR /app
+RUN apt-get update && apt-get install libssl-dev -y
+# this is needed because we test with other sites and we need the certs for verification and not breaking reqwest
+RUN apt-get update && apt-get install ca-certificates -y
+COPY ./target/debug/manager /app/manager
+COPY data /app/data
+
+CMD ["/app/manager", "banana_pattern", "apple_path"]
